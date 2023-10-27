@@ -3,9 +3,9 @@ import morgan from 'morgan'
 import cors from 'cors'
 import 'reflect-metadata'
 
-// import usuarioRouter from './routes/usuario.router'
+import usuarioRouter from './routes/user.router'
 
-// import passportMiddleware from './middewares/passport'
+import passportMiddleware from './middewares/passport'
 import passport from 'passport'
 import passportLocal from 'passport-local'
 
@@ -19,8 +19,8 @@ app.use(express.urlencoded({ extended: false }))
 
 //Agregar para jwt
 app.use(passport.initialize())
-// passport.use(passportMiddleware)
+passport.use(passportMiddleware)
 
-// app.use('/api', usuarioRouter)
+app.use('/api', usuarioRouter)
 
 export default app

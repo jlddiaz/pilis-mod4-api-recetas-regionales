@@ -1,4 +1,4 @@
-import { Usuario } from '../entities/Usuario'
+import { User } from '../entities/User'
 import { Strategy, ExtractJwt, StrategyOptions } from 'passport-jwt'
 
 const opts: StrategyOptions = {
@@ -8,7 +8,7 @@ const opts: StrategyOptions = {
 
 export default new Strategy(opts, async (payload, done) => {
   try {
-    const user = await Usuario.findOneBy({ id: parseInt(payload.id) })
+    const user = await User.findOneBy({ id: parseInt(payload.id) })
 
     if (user) {
       return done(null, user)

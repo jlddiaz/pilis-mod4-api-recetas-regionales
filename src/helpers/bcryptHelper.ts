@@ -1,7 +1,7 @@
-import { Usuario } from './../entities/Usuario'
+import { User } from '../entities/User'
 import bcrypt from 'bcrypt'
 export const comparePassword = async (
-  user: Usuario,
+  user: User,
   password: string
 ): Promise<Boolean> => {
   return await bcrypt.compare(password, user.password)
