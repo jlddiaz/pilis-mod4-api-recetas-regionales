@@ -1,0 +1,47 @@
+{
+  "name": "pilis-mod4-api-recetas-regionales",
+  "version": "1.0.0",
+  "description": "Sistema de recetas de comidas regionales de jujuy",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node-dev --raspawn src/index.js",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jlddiaz/pilis-mod4-api-recetas-regionales.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jlddiaz/pilis-mod4-api-recetas-regionales/issues"
+  },
+  "homepage": "https://github.com/jlddiaz/pilis-mod4-api-recetas-regionales#readme",
+  "dependencies": {
+    "@types/express": "^4.17.20",
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "passport": "^0.6.0",
+    "passport-jwt": "^4.0.1",
+    "passport-local": "^1.0.0",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.3.17"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.1",
+    "@types/cors": "^2.8.15",
+    "@types/jsonwebtoken": "^9.0.4",
+    "@types/morgan": "^1.9.7",
+    "@types/node": "^20.8.9",
+    "@types/passport": "^1.0.14",
+    "@types/passport-jwt": "^3.0.12",
+    "@types/passport-local": "^1.0.37",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.2.2"
+  }
+}
