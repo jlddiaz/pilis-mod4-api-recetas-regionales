@@ -3,7 +3,8 @@ import morgan from 'morgan'
 import cors from 'cors'
 import 'reflect-metadata'
 
-import usuarioRouter from './routes/user.router'
+import userRouter from './routes/user.router'
+import recipeRouter from './routes/recipe.router'
 
 import passportMiddleware from './middewares/passport'
 import passport from 'passport'
@@ -21,6 +22,7 @@ app.use(express.urlencoded({ extended: false }))
 app.use(passport.initialize())
 passport.use(passportMiddleware)
 
-app.use('/api', usuarioRouter)
+app.use('/api', userRouter)
+app.use('/api',recipeRouter)
 
 export default app

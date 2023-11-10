@@ -45,7 +45,7 @@ export const getUsers = async (req: Request, res: Response) => {
 export const getUser = async (req: Request, res: Response) => {
   try {
     const { id } = req.params
-    const user = await User.findOneBy({ id: parseInt(id) })
+    const user = await User.findOneBy({ id: id })
 
     if (!user) return res.status(404).json({ message: 'User not found' })
 
@@ -61,18 +61,20 @@ export const signUp = async (
   req: Request,
   res: Response
 ): Promise<Response> => {
-  if (!req.body.mail || !req.body.password) {
-    return res.status(400).json({ msg: 'Please. Send your mail and password' })
+  const { username, password } = req.body
+
+  if (!username || !password) {
+    return res.status(400).json({ msg: 'Please. Send your username and password' })
   }
 
-  const user = await User.findOneBy({ username: req.body.username })
+  const user = await User.findOneBy({ username: username })
   if (user) {
     return res.status(400).json({ msg: 'The User already Exists' })
   }
 
   const newUser = new User()
-  newUser.username = req.body.username
-  newUser.password = await createHash(req.body.password)
+  newUser.username = username
+  newUser.password = await createHash(password)
   await newUser.save()
 
   return res.status(201).json(newUser)
@@ -82,18 +84,20 @@ export const signIn = async (
   req: Request,
   res: Response
 ): Promise<Response> => {
-  if (!req.body.username || !req.body.password) {
+  const { username, password } = req.body
+
+  if (!username || !password) {
     return res
       .status(400)
       .json({ msg: 'Please. Send your username and password' })
   }
 
-  const user = await User.findOneBy({ username: req.body.username })
+  const user = await User.findOneBy({ username: username })
   if (!user) {
     return res.status(400).json({ msg: 'The User does not exists' })
   }
 
-  const isMatch = await comparePassword(user, req.body.password)
+  const isMatch = await comparePassword(user, password)
   if (isMatch) {
     return res.status(200).json({ ...createToken(user), ...user })
   }

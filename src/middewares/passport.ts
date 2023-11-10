@@ -8,7 +8,7 @@ const opts: StrategyOptions = {
 
 export default new Strategy(opts, async (payload, done) => {
   try {
-    const user = await User.findOneBy({ id: parseInt(payload.id) })
+    const user = await User.findOneBy({ id: payload.id })
 
     if (user) {
       return done(null, user)

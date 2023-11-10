@@ -1,15 +1,27 @@
 import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, CreateDateColumn, UpdateDateColumn } from 'typeorm'
 
 @Entity()
-export class User extends BaseEntity {
+export class Recipe extends BaseEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string
 
   @Column()
-  username: string
+  name: string
 
   @Column()
-  password: string
+  description: string
+
+  @Column()
+  image: string
+
+  @Column()
+  ingredients: string
+
+  @Column()
+  preparation: string
+
+  @Column()
+  preparation_time: string
 
   @CreateDateColumn()
   createdAt: Date

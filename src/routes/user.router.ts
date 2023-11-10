@@ -9,8 +9,8 @@ import {
 
 const router = Router()
 
-router.get('/usuarios', getUsers)
-router.get('/usuarios/:id', getUser)
+router.get('/users', getUsers)
+router.get('/users/:id', getUser)
 router.post('/signup', signUp)
 router.post('/signin', signIn)
 router.post('/token', refresh)
