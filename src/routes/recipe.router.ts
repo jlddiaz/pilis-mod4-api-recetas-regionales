@@ -1,4 +1,5 @@
 import { Router } from 'express'
+import passport from 'passport'
 import {
   createRecipe,
   deleteRecipe,
@@ -11,8 +12,20 @@ const router = Router()
 
 router.get('/recipes', getRecipes)
 router.get('/recipes/:id', getRecipe)
-router.post('/recipes', createRecipe)
-router.put('/recipes/:id', updateRecipe)
-router.delete('/recipes/:id', deleteRecipe)
+router.post(
+  '/recipes',
+  passport.authenticate('jwt', { session: false }),
+  createRecipe
+)
+router.put(
+  '/recipes/:id',
+  passport.authenticate('jwt', { session: false }),
+  updateRecipe
+)
+router.delete(
+  '/recipes/:id',
+  passport.authenticate('jwt', { session: false }),
+  deleteRecipe
+)
 
 export default router

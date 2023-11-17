@@ -36,8 +36,8 @@ export const createRecipe = async (req: Request, res: Response) => {
     const {
       name, description, image, ingredients, preparation, preparation_time } = req.body
 
-    
     const recipe = new Recipe()
+    recipe.name = name
     recipe.description = description
     recipe.image = image
     recipe.ingredients = ingredients

@@ -1,4 +1,3 @@
-import { AppDataSource } from '../db'
 import { Request, Response } from 'express'
 
 // -------- Agregar para jwt
@@ -57,6 +56,43 @@ export const getUser = async (req: Request, res: Response) => {
   }
 }
 
+export const updateUser = async (req: Request, res: Response) => {
+  const { id } = req.params
+  const { username, password } = req.body
+
+  try {
+    const user = await User.findOneBy({ id })
+    if (!user) return res.status(404).json({ message: 'User not found' })
+
+    user.username = username
+    if(password) user.password = await createHash(password)
+    await user.save()
+    // await User.update({ id }, req.body)
+
+    return res.sendStatus(204)
+  } catch (error) {
+    if (error instanceof Error) {
+      return res.status(500).json({ message: error.message })
+    }
+  }
+}
+
+export const deleteUser = async (req: Request, res: Response) => {
+  const { id } = req.params
+  try {
+    const result = await User.delete({ id })
+
+    if (result.affected === 0)
+      return res.status(404).json({ message: 'User not found' })
+
+    return res.sendStatus(204)
+  } catch (error) {
+    if (error instanceof Error) {
+      return res.status(500).json({ message: error.message })
+    }
+  }
+}
+
 export const signUp = async (
   req: Request,
   res: Response
@@ -64,7 +100,9 @@ export const signUp = async (
   const { username, password } = req.body
 
   if (!username || !password) {
-    return res.status(400).json({ msg: 'Please. Send your username and password' })
+    return res
+      .status(400)
+      .json({ msg: 'Please. Send your username and password' })
   }
 
   const user = await User.findOneBy({ username: username })

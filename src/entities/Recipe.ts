@@ -8,16 +8,16 @@ export class Recipe extends BaseEntity {
   @Column()
   name: string
 
-  @Column()
+  @Column('text')
   description: string
 
   @Column()
   image: string
 
-  @Column()
+  @Column('text')
   ingredients: string
 
-  @Column()
+  @Column('text')
   preparation: string
 
   @Column()
