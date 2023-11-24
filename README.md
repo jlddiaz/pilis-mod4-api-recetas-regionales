@@ -28,21 +28,21 @@ Lista de rutas disponibles:
 
 Auth routes:
 
-POST api/signup - Signup
-POST api/signin - Signin
-POST api/token - Refresh Token
+- POST api/signup - Signup
+- POST api/signin - Signin
+- POST api/token - Refresh Token
 
 User Routes: 
 
-GET api/users - Get all users
-GET api/users/:userId - Get user
-PUT api/users/:userId - Update user
-DELETE api/users/:userId - Delete user
+- GET api/users - Get all users
+- GET api/users/:userId - Get user
+- PUT api/users/:userId - Update user
+- DELETE api/users/:userId - Delete user
 
 Recipe Routes:
 
-GET api/recipes - Get all recipes
-GET api/recipes/:recipeId - Get recipe
-POST api/recipes - Create recipe
-PUT api/recipes/:recipeId - Update recipe
-DELETE api/recipes/:recipeId - Delete recipe
+- GET api/recipes - Get all recipes
+- GET api/recipes/:recipeId - Get recipe
+- POST api/recipes - Create recipe
+- PUT api/recipes/:recipeId - Update recipe
+- DELETE api/recipes/:recipeId - Delete recipe
