@@ -1,0 +1,207 @@
+{
+	"info": {
+		"_postman_id": "2a353bd9-c2aa-4f10-8527-e195065368db",
+		"name": "Recetas Regionales",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "5674296",
+		"_collection_link": "https://restless-astronaut-632311.postman.co/workspace/Sistema-de-Placas-Inteligentes~f3ac149d-13eb-4c3f-a68d-8dae9c9538eb/collection/5674296-2a353bd9-c2aa-4f10-8527-e195065368db?action=share&source=collection_link&creator=5674296"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3001/api/users"
+					},
+					"response": []
+				},
+				{
+					"name": "Get User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3001/api/users/0910a2f2-252a-495f-a077-6d3f847a926d"
+					},
+					"response": []
+				},
+				{
+					"name": "Signup",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"jorgeluis\",\r\n    \"password\":\"123456\"\r\n}"
+						},
+						"url": "http://localhost:3001/api/signup"
+					},
+					"response": []
+				},
+				{
+					"name": "SignIn",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"jorge\",\r\n    \"password\":\"123456\"\r\n}"
+						},
+						"url": "http://localhost:3001/api/Signin"
+					},
+					"response": []
+				},
+				{
+					"name": "RefreshToken",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"refresh\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvcmdlIiwiaWF0IjoxNzAwMTg4MDU4LCJleHAiOjE3MDc5NjQwNTh9.99F4eOpWQfas7YjZQLvr8230Rej1KI8kKq0Bei6U_3Q\"\r\n}"
+						},
+						"url": "http://localhost:3001/api/token"
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"kiko\",\r\n    \"password\":\"12345678\"\r\n}"
+						},
+						"url": "http://localhost:3001/api/users/0910a2f2-252a-495f-a077-6d3f847a926d"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:3001/api/users/40c085c2-821b-47ba-a975-5c5726206c5a"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Recipe",
+			"item": [
+				{
+					"name": "Recipes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3001/api/recipes"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Recipe",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3001/api/recipes/6bd036c2-b76f-409b-9026-179ebde8e765"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Recipe",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IiIsInVzZXJuYW1lIjoiam9yZ2UiLCJpYXQiOjE3MDAxODgwNTgsImV4cCI6MTcwMDE5NTI1OH0.Q3rP8VN_8SFcWn8XLevtljomCDL3UalwZ2_xAzlUbDY"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"anchi\",\r\n    \"description\":\"ejemplo\",\r\n    \"image\":\"hola\",\r\n    \"ingredients\":\"ingredientes\",\r\n    \"preparation\":\"preparacion\",\r\n    \"preparation_time\":\"mi preparacion\"\r\n}"
+						},
+						"url": "http://localhost:3001/api/recipes"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Recipe",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IiIsInVzZXJuYW1lIjoiam9yZ2UiLCJpYXQiOjE3MDAxODgwNTgsImV4cCI6MTcwMDE5NTI1OH0.Q3rP8VN_8SFcWn8XLevtljomCDL3UalwZ2_xAzlUbDY"
+							}
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Crema de leche\"\r\n}"
+						},
+						"url": "http://localhost:3001/api/recipes/944e051f-b534-4bf5-a23d-0d4b752efdb1"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Recipe",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IiIsIm1haWwiOiJqb3JnZSIsImlhdCI6MTcwMDE4ODI2NSwiZXhwIjoxNzAwMTg4Mzg1fQ.wWl9DxOtqzomkCKITFSi2oJH0Yoab6nizbwTEAA95Ow"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:3001/api/recipes/944e051f-b534-4bf5-a23d-0d4b752efdb1"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
